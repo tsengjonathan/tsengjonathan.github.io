@@ -1,5 +1,11 @@
 // Override default variables before the import
-$body-bg: #000;
+$body-bg: #121212;
+
+$theme-colors: (
+  "dark": #121212
+);
+
+$font-family-monospace: (Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
