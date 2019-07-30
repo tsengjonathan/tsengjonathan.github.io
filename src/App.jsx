@@ -3,6 +3,7 @@ import { FileText, GitHub, Linkedin } from 'react-feather';
 import Navbar from './components/Navbar';
 import Title from './components/Title';
 import './App.css';
+import resume from './resume.pdf';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             </a>
           </div>
           <div className="icon">
-            <a href="https://tsengjonathan.com">
+            <a href={resume}>
               <FileText color="white" />
             </a>
           </div>
