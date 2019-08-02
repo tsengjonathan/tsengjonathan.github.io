@@ -1,17 +1,28 @@
 import React from 'react';
-import Navbar from './components/Navbar';
 import './App.css';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
-
+import NavItem from './components/NavItem';
 
 function App() {
   return (
-    <div className="container">
-      <Navbar title="Home" />
-      <div className="body">
-        <Home />
-      </div>
-    </div>
+    <Container>
+      <Router>
+        <Navbar bg="dark" variant="dark">
+          <Nav>
+            <NavItem href="/" active name="Home" />
+            <NavItem href="/news" name="News" />
+          </Nav>
+        </Navbar>
+
+        <div className="body">
+          <Route path="/" exact component={Home} />
+        </div>
+      </Router>
+    </Container>
   );
 }
 
