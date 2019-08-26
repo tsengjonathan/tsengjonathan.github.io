@@ -12,10 +12,20 @@ div.container {
 }
 
 .body {
-  margin: auto 0;
+  margin: auto;
 }
 
 .icon {
-  margin: 1rem 1rem;
+  margin: 1rem;
 }
 
+/* bootstrap's .navbar-expand forces items to flex-start */
+.navbar-expand {
+  justify-content: space-between;
+}
+
+button.icon-button {
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+}
