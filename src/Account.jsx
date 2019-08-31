@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { User } from 'react-feather';
+import { User, LogOut } from 'react-feather';
+import Cookies from 'js-cookie';
 import {
   Button, Form, InputGroup, Modal, Nav,
 } from 'react-bootstrap';
-import _ from 'lodash';
 
-function Account({ setUser }) {
+function Account() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleOpen = () => setShow(true);
@@ -35,18 +34,25 @@ function Account({ setUser }) {
       body: JSON.stringify(data),
     })
       .then(res => res.json())
-      .then(response => _.assign({ loggedIn: true }, setUser(response)))
       .then(handleValidForm)
       .then(handleClose)
-      .catch(handleInvalidForm)
-      .finally(handleValidate);
+      .catch(() => {
+        handleInvalidForm();
+      })
+      .finally(() => {
+        setValidated(null);
+        handleValidate();
+      });
   };
 
   return (
     <>
       <Nav className="justify-content-end">
         <button className="icon-button" type="button" onClick={handleOpen}>
-          <User color="white" />
+          <User color="white" size={20} />
+        </button>
+        <button className={Cookies.get('connect.sid') ? 'icon-button' : 'hidden-button'} type="button">
+          <LogOut color="white" size={20} />
         </button>
       </Nav>
       <Modal show={show} onHide={handleClose} centered>
@@ -83,9 +89,5 @@ function Account({ setUser }) {
     </>
   );
 }
-
-Account.propTypes = {
-  setUser: PropTypes.func.isRequired,
-};
 
 export default Account;
