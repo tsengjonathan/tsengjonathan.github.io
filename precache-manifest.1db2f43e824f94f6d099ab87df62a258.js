@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5004397d6b70c2d77e34d33d2f9e16d1",
+    "revision": "3b14f6940b7855d35fee6c77df74f1f8",
     "url": "/tsengjonathan.com/index.html"
   },
   {
-    "revision": "f25f591e68a6b09d77be",
-    "url": "/tsengjonathan.com/static/css/main.ce3acc05.chunk.css"
+    "revision": "6b774cce8c9acca7555b",
+    "url": "/tsengjonathan.com/static/css/main.01e6f14d.chunk.css"
   },
   {
-    "revision": "32c9fc97d4bffa461b18",
-    "url": "/tsengjonathan.com/static/js/2.9df6095d.chunk.js"
+    "revision": "9a9a7530402350e28de0",
+    "url": "/tsengjonathan.com/static/js/2.17c225d4.chunk.js"
   },
   {
-    "revision": "f25f591e68a6b09d77be",
-    "url": "/tsengjonathan.com/static/js/main.6fd91523.chunk.js"
+    "revision": "6b774cce8c9acca7555b",
+    "url": "/tsengjonathan.com/static/js/main.325a914a.chunk.js"
   },
   {
     "revision": "9bd844d7d0b3bb21c471",
