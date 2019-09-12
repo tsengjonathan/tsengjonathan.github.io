@@ -1,22 +1,17 @@
 const hackerNews = 'https://hacker-news.firebaseio.com/v0';
 
-function fetchItem(id) {
-  fetch(`${hackerNews}/item/${id}.json`)
-    .then(response => response.json());
+async function fetchItem(id) {
+  const response = await fetch(`${hackerNews}/item/${id}.json`);
+  return response.json();
 }
 
-// Prefetch the top story ids and keep in memory
-// We may want to load the first 50 stories, but load more on scroll
-const topStoryIds = fetch(`${hackerNews}/topstories.json`)
-  .then(response => response.json())
-  .catch(error => console.error(error));
-
-function getTopStories(startIdx = 0, endIdx = 50) {
-  console.log(topStoryIds);
-  const ids = topStoryIds.slice(startIdx, endIdx);
-  const topStories = ids.array.forEach((id) => {
-    console.log(fetchItem(id));
-  });
+function getTopStories(startIdx = 0, endIdx = 50, callback) {
+  fetch(`${hackerNews}/topstories.json`)
+    .then(response => response.json())
+    .then(json => json.slice(startIdx, endIdx))
+    .then(ids => ids.map(id => fetchItem(id)))
+    .then(promises => Promise.all(promises))
+    .then(stories => callback(stories));
 }
 
 export default getTopStories;
