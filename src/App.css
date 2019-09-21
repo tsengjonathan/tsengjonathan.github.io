@@ -6,6 +6,11 @@ body, div#root, div.container {
   height: inherit;
 }
 
+a, a:hover {
+  color: initial;
+  text-decoration: none;
+}
+
 div.container {
   display: flex;
   flex-direction: column;
@@ -17,5 +22,21 @@ div.container {
 
 .icon {
   margin: 1rem 1rem;
+}
+
+.navbar {
+  min-height: 3.5rem;
+}
+
+.card-body {
+  padding: 0.5rem;
+}
+
+.card-title {
+  font-size: 1rem;
+}
+
+.col {
+  padding: 0.5rem;
 }
 
