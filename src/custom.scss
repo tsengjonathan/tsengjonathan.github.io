@@ -6,6 +6,7 @@ $theme-colors: (
 );
 
 $font-family-monospace: (Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+$font-family-base: $font-family-monospace;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
