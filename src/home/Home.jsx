@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileText, GitHub, Linkedin } from 'react-feather';
-import resume from './resume.pdf';
-import Title from './components/Title';
+import resume from '../resume.pdf';
+import Title from '../components/Title';
 
 function Home() {
   return (
