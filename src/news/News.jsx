@@ -3,17 +3,21 @@ import { Container, Button } from 'react-bootstrap';
 import topStories from './data';
 import NewsCard from './NewsCard';
 
+const pagination = 50;
+
 function News() {
   const [stories, setStories] = useState([]);
-  const [storyCount, setStoryCount] = useState(50);
+  const [storyCount, setStoryCount] = useState(pagination);
 
   useEffect(() => {
     topStories(0, storyCount, (storiesCallback => setStories(storiesCallback)));
   }, []);
 
   function paginate() {
-    setStoryCount(storyCount + 50);
-    topStories(storyCount - 50, storyCount, ((storiesCallback) => { const newStoryCount = stories.concat(storiesCallback); setStories(newStoryCount); }));
+    const newStoryCount = storyCount + pagination;
+    topStories(storyCount, newStoryCount,
+      (storiesCallback => setStories(stories.concat(storiesCallback))));
+    setStoryCount(newStoryCount);
   }
 
   return (
