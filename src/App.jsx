@@ -9,13 +9,15 @@ import News from './news';
 import NavItem from './components/NavItem';
 
 function App() {
+  const { location } = window;
+  const { pathname } = location;
   return (
     <Container>
       <Router>
         <Navbar bg="dark" variant="dark">
           <Nav>
-            <NavItem href="/" active name="Home" />
-            <NavItem href="/news" name="News" />
+            <NavItem href="/" active={pathname === '/'} name="Home" />
+            <NavItem href="/news" active={pathname === '/news'} name="News" />
           </Nav>
         </Navbar>
 
