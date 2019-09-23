@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, CardColumns } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import topStories from './data';
 import NewsCard from './NewsCard';
 
@@ -9,18 +9,32 @@ function News() {
 
   useEffect(() => {
     topStories(0, storyCount, (storiesCallback => setStories(storiesCallback)));
-  }, [storyCount]);
+  }, []);
+
+  function paginate() {
+    setStoryCount(storyCount + 50);
+    topStories(storyCount - 50, storyCount, ((storiesCallback) => { const newStoryCount = stories.concat(storiesCallback); setStories(newStoryCount); }));
+  }
 
   return (
-    <Container>
-      <CardColumns>
-        { stories.map((story) => {
-          const {
-            id, by, score, time, title, url,
-          } = story;
-          return <NewsCard key={id} id={id} by={by} score={score} time={time} title={title} url={url} />;
-        })}
-      </CardColumns>
+    <Container style={{ alignItems: 'center' }}>
+      { stories.map((story) => {
+        const {
+          id, by, score, time, title, url,
+        } = story;
+        return (
+          <NewsCard
+            key={id}
+            id={id}
+            by={by}
+            score={score}
+            time={time}
+            title={title}
+            url={url}
+          />
+        );
+      })}
+      <Button variant="secondary" onClick={() => paginate()} style={{ width: '20rem' }}>Load more</Button>
     </Container>
   );
 }
