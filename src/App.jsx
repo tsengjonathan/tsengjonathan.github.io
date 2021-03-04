@@ -16,7 +16,7 @@ function App() {
         <Navbar bg="dark" variant="dark">
           <Nav>
             <NavItem href="/" active={pathname === '/'} name="Home" />
-            <NavItem href="/sudoku" name="Sudoku" />
+            <NavItem href="https://outtaink.com" name="Outtaink" />
           </Nav>
         </Navbar>
 
