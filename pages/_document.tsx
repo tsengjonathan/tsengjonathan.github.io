@@ -10,7 +10,7 @@ const Document = () => {
           rel="stylesheet"
         />
       </Head>
-      <body className="font-default bg-stone-50">
+      <body className="font-default bg-stone-50 dark:bg-stone-900 transition-colors max-w-screen-xl mx-auto text-black dark:text-white">
         <Main />
         <NextScript />
       </body>
